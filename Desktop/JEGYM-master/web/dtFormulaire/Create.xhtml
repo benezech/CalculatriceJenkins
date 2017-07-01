@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DtFormulaireCreateDlg" widgetVar="DtFormulaireCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateDtFormulaireTitle}">
+            <h:form id="DtFormulaireCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{dtFormulaireController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateDtFormulaireLabel_idFormulaire}" for="idFormulaire" />
+                        <p:inputText id="idFormulaire" value="#{dtFormulaireController.selected.idFormulaire}" title="#{bundle.CreateDtFormulaireTitle_idFormulaire}" required="true" requiredMessage="#{bundle.CreateDtFormulaireRequiredMessage_idFormulaire}"/>
+                        <p:outputLabel value="#{bundle.CreateDtFormulaireLabel_nomFormulaire}" for="nomFormulaire" />
+                        <p:inputText id="nomFormulaire" value="#{dtFormulaireController.selected.nomFormulaire}" title="#{bundle.CreateDtFormulaireTitle_nomFormulaire}" />
+                        <p:outputLabel value="#{bundle.CreateDtFormulaireLabel_expirationFormulaire}" for="expirationFormulaire" />
+                        <p:calendar id="expirationFormulaire" pattern="MM/dd/yyyy HH:mm:ss" value="#{dtFormulaireController.selected.expirationFormulaire}" title="#{bundle.EditDtFormulaireTitle_expirationFormulaire}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateDtFormulaireLabel_siretEntreprise}" for="siretEntreprise" />
+                        <p:selectOneMenu id="siretEntreprise" value="#{dtFormulaireController.selected.siretEntreprise}" required="true" requiredMessage="#{bundle.EditDtFormulaireRequiredMessage_siretEntreprise}">
+                            <f:selectItems value="#{dtEntrepriseController.itemsAvailableSelectOne}"
+                                           var="siretEntrepriseItem"
+                                           itemValue="#{siretEntrepriseItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{dtFormulaireController.create}" value="#{bundle.Save}" update="display,:DtFormulaireListForm:datalist,:growl" oncomplete="handleSubmit(args,'DtFormulaireCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="DtFormulaireCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

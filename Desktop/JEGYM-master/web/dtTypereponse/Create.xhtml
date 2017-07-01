@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DtTypereponseCreateDlg" widgetVar="DtTypereponseCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateDtTypereponseTitle}">
+            <h:form id="DtTypereponseCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{dtTypereponseController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateDtTypereponseLabel_idTypereponse}" for="idTypereponse" />
+                        <p:inputText id="idTypereponse" value="#{dtTypereponseController.selected.idTypereponse}" title="#{bundle.CreateDtTypereponseTitle_idTypereponse}" required="true" requiredMessage="#{bundle.CreateDtTypereponseRequiredMessage_idTypereponse}"/>
+                        <p:outputLabel value="#{bundle.CreateDtTypereponseLabel_libelleTypereponse}" for="libelleTypereponse" />
+                        <p:inputText id="libelleTypereponse" value="#{dtTypereponseController.selected.libelleTypereponse}" title="#{bundle.CreateDtTypereponseTitle_libelleTypereponse}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{dtTypereponseController.create}" value="#{bundle.Save}" update="display,:DtTypereponseListForm:datalist,:growl" oncomplete="handleSubmit(args,'DtTypereponseCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="DtTypereponseCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

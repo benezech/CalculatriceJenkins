@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TlQuestionReponseSondeViewDlg" widgetVar="TlQuestionReponseSondeViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewTlQuestionReponseSondeTitle}">
+            <h:form id="TlQuestionReponseSondeViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tlQuestionReponseSondeController.selected != null}">
+                        <h:outputText value="#{bundle.ViewTlQuestionReponseSondeLabel_idTlQuestionReponseSonde}"/>
+                        <h:outputText value="#{tlQuestionReponseSondeController.selected.idTlQuestionReponseSonde}" title="#{bundle.ViewTlQuestionReponseSondeTitle_idTlQuestionReponseSonde}"/>
+                        <h:outputText value="#{bundle.ViewTlQuestionReponseSondeLabel_idQuestion}"/>
+                        <h:outputText value="#{tlQuestionReponseSondeController.selected.idQuestion}" title="#{bundle.ViewTlQuestionReponseSondeTitle_idQuestion}"/>
+                        <h:outputText value="#{bundle.ViewTlQuestionReponseSondeLabel_idReponse}"/>
+                        <h:outputText value="#{tlQuestionReponseSondeController.selected.idReponse}" title="#{bundle.ViewTlQuestionReponseSondeTitle_idReponse}"/>
+                        <h:outputText value="#{bundle.ViewTlQuestionReponseSondeLabel_idSonde}"/>
+                        <h:outputText value="#{tlQuestionReponseSondeController.selected.idSonde}" title="#{bundle.ViewTlQuestionReponseSondeTitle_idSonde}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="TlQuestionReponseSondeViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

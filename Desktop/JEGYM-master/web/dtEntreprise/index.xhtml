@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html 
+    xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListDtEntrepriseTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="DtEntrepriseListForm">
+                <p:panel header="#{bundle.ListDtEntrepriseTitle}">
+        <div>TODO write content</div>
+        <p:dataTable id="datalist" value="#{dtEntrepriseController.items}" var="item"
+                                 selectionMode="single" selection="#{dtEntrepriseController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.siretEntreprise}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDtEntrepriseTitle_siretEntreprise}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.siretEntreprise}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDtEntrepriseTitle_raisonSocialEntreprise}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.raisonSocialEntreprise}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDtEntrepriseTitle_adresseEntreprise}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.adresseEntreprise}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDtEntrepriseTitle_cpEntreprise}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cpEntreprise}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDtEntrepriseTitle_villeEntreprise}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.villeEntreprise}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDtEntrepriseTitle_telEntreprise}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.telEntreprise}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDtEntrepriseTitle_emailEntreprise}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.emailEntreprise}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDtEntrepriseTitle_pwdEntreprise}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.pwdEntreprise}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="Voir" update=":DtEntrepriseViewForm" oncomplete="PF('DtEntrepriseViewDialog').show()" disabled="#{empty dtEntrepriseController.selected}"/>
+                            </f:facet>
+                    </p:dataTable>
+       
+         </p:panel>
+            </h:form>
+
+             <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+    </body>
+</html>

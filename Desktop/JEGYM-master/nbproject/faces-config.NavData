@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="dtEntreprise/View.xhtml" x="1900" y="300" zoom="true"/>
+        <Node id="dtTypesonde/View.xhtml" x="900" y="750" zoom="true"/>
+        <Node id="dtQuestion/Edit.xhtml" x="650" y="600" zoom="true"/>
+        <Node id="tlUrlFormulaireSonde/View.xhtml" x="1650" y="150" zoom="true"/>
+        <Node id="welcomePrimefaces.xhtml" x="1650" y="300" zoom="true"/>
+        <Node id="dtEntreprise/Create.xhtml" x="900" y="450" zoom="true"/>
+        <Node id="dtEntreprise/List.xhtml" x="400" y="450" zoom="true"/>
+        <Node id="dtSonde/Create.xhtml" x="150" y="750" zoom="true"/>
+        <Node id="tlUrlFormulaireSonde/Edit.xhtml" x="1400" y="150" zoom="true"/>
+        <Node id="dtSonde/List.xhtml" x="150" y="1050" zoom="true"/>
+        <Node id="tlQuestionReponseSonde/List.xhtml" x="400" y="1050" zoom="true"/>
+        <Node id="dtQuestion/View.xhtml" x="150" y="600" zoom="true"/>
+        <Node id="dtFormulaire/View.xhtml" x="400" y="300" zoom="true"/>
+        <Node id="dtFormulaire/Edit.xhtml" x="150" y="450" zoom="true"/>
+        <Node id="dtTypereponse/Create.xhtml" x="900" y="150" zoom="true"/>
+        <Node id="dtQuestion/List.xhtml" x="1400" y="600" zoom="true"/>
+        <Node id="dtTypereponse/Edit.xhtml" x="650" y="300" zoom="true"/>
+        <Node id="template.xhtml" x="400" y="900" zoom="true"/>
+        <Node id="tlUrlFormulaireSonde/Create.xhtml" x="150" y="300" zoom="true"/>
+        <Node id="dtTypereponse/View.xhtml" x="900" y="600" zoom="true"/>
+        <Node id="tlQuestionReponseSonde/Create.xhtml" x="650" y="750" zoom="true"/>
+        <Node id="index.xhtml" x="1400" y="450" zoom="true"/>
+        <Node id="dtTypereponse/List.xhtml" x="1650" y="450" zoom="true"/>
+        <Node id="dtTypesonde/Create.xhtml" x="2150" y="150" zoom="true"/>
+        <Node id="dtReponse/Create.xhtml" x="150" y="150" zoom="true"/>
+        <Node id="dtReponse/Edit.xhtml" x="1150" y="600" zoom="true"/>
+        <Node id="dtQuestion/Create.xhtml" x="400" y="600" zoom="true"/>
+        <Node id="tlQuestionReponseSonde/View.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="dtFormulaire/Create.xhtml" x="650" y="450" zoom="true"/>
+        <Node id="dtSonde/View.xhtml" x="1150" y="450" zoom="true"/>
+        <Node id="dtReponse/View.xhtml" x="1150" y="150" zoom="true"/>
+        <Node id="dtEntreprise/index.xhtml" x="1150" y="300" zoom="true"/>
+        <Node id="dtFormulaire/List.xhtml" x="1900" y="150" zoom="true"/>
+        <Node id="dtEntreprise/Edit.xhtml" x="650" y="150" zoom="true"/>
+        <Node id="tlQuestionReponseSonde/Edit.xhtml" x="900" y="300" zoom="true"/>
+        <Node id="dtSonde/Edit.xhtml" x="400" y="750" zoom="true"/>
+        <Node id="dtReponse/List.xhtml" x="150" y="900" zoom="true"/>
+        <Node id="tlUrlFormulaireSonde/List.xhtml" x="1400" y="300" zoom="true"/>
+        <Node id="dtTypesonde/Edit.xhtml" x="650" y="900" zoom="true"/>
+        <Node id="dtTypesonde/List.xhtml" x="150" y="1200" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>

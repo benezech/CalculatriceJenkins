@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TlQuestionReponseSondeCreateDlg" widgetVar="TlQuestionReponseSondeCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateTlQuestionReponseSondeTitle}">
+            <h:form id="TlQuestionReponseSondeCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tlQuestionReponseSondeController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateTlQuestionReponseSondeLabel_idTlQuestionReponseSonde}" for="idTlQuestionReponseSonde" />
+                        <p:inputText id="idTlQuestionReponseSonde" value="#{tlQuestionReponseSondeController.selected.idTlQuestionReponseSonde}" title="#{bundle.CreateTlQuestionReponseSondeTitle_idTlQuestionReponseSonde}" required="true" requiredMessage="#{bundle.CreateTlQuestionReponseSondeRequiredMessage_idTlQuestionReponseSonde}"/>
+                        <p:outputLabel value="#{bundle.CreateTlQuestionReponseSondeLabel_idQuestion}" for="idQuestion" />
+                        <p:selectOneMenu id="idQuestion" value="#{tlQuestionReponseSondeController.selected.idQuestion}" required="true" requiredMessage="#{bundle.EditTlQuestionReponseSondeRequiredMessage_idQuestion}">
+                            <f:selectItems value="#{dtQuestionController.itemsAvailableSelectOne}"
+                                           var="idQuestionItem"
+                                           itemValue="#{idQuestionItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateTlQuestionReponseSondeLabel_idReponse}" for="idReponse" />
+                        <p:selectOneMenu id="idReponse" value="#{tlQuestionReponseSondeController.selected.idReponse}" required="true" requiredMessage="#{bundle.EditTlQuestionReponseSondeRequiredMessage_idReponse}">
+                            <f:selectItems value="#{dtReponseController.itemsAvailableSelectOne}"
+                                           var="idReponseItem"
+                                           itemValue="#{idReponseItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateTlQuestionReponseSondeLabel_idSonde}" for="idSonde" />
+                        <p:selectOneMenu id="idSonde" value="#{tlQuestionReponseSondeController.selected.idSonde}" required="true" requiredMessage="#{bundle.EditTlQuestionReponseSondeRequiredMessage_idSonde}">
+                            <f:selectItems value="#{dtSondeController.itemsAvailableSelectOne}"
+                                           var="idSondeItem"
+                                           itemValue="#{idSondeItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{tlQuestionReponseSondeController.create}" value="#{bundle.Save}" update="display,:TlQuestionReponseSondeListForm:datalist,:growl" oncomplete="handleSubmit(args,'TlQuestionReponseSondeCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TlQuestionReponseSondeCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

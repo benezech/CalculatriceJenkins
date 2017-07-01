@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DtSondeCreateDlg" widgetVar="DtSondeCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateDtSondeTitle}">
+            <h:form id="DtSondeCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{dtSondeController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateDtSondeLabel_idSonde}" for="idSonde" />
+                        <p:inputText id="idSonde" value="#{dtSondeController.selected.idSonde}" title="#{bundle.CreateDtSondeTitle_idSonde}" required="true" requiredMessage="#{bundle.CreateDtSondeRequiredMessage_idSonde}"/>
+                        <p:outputLabel value="#{bundle.CreateDtSondeLabel_nomSonde}" for="nomSonde" />
+                        <p:inputText id="nomSonde" value="#{dtSondeController.selected.nomSonde}" title="#{bundle.CreateDtSondeTitle_nomSonde}" />
+                        <p:outputLabel value="#{bundle.CreateDtSondeLabel_prenomSonde}" for="prenomSonde" />
+                        <p:inputText id="prenomSonde" value="#{dtSondeController.selected.prenomSonde}" title="#{bundle.CreateDtSondeTitle_prenomSonde}" />
+                        <p:outputLabel value="#{bundle.CreateDtSondeLabel_typeSonde}" for="typeSonde" />
+                        <p:inputText id="typeSonde" value="#{dtSondeController.selected.typeSonde}" title="#{bundle.CreateDtSondeTitle_typeSonde}" />
+                        <p:outputLabel value="#{bundle.CreateDtSondeLabel_mailSonde}" for="mailSonde" />
+                        <p:inputText id="mailSonde" value="#{dtSondeController.selected.mailSonde}" title="#{bundle.CreateDtSondeTitle_mailSonde}" />
+                        <p:outputLabel value="#{bundle.CreateDtSondeLabel_telSonde}" for="telSonde" />
+                        <p:inputText id="telSonde" value="#{dtSondeController.selected.telSonde}" title="#{bundle.CreateDtSondeTitle_telSonde}" />
+                        <p:outputLabel value="#{bundle.CreateDtSondeLabel_idTypesonde}" for="idTypesonde" />
+                        <p:selectOneMenu id="idTypesonde" value="#{dtSondeController.selected.idTypesonde}" required="true" requiredMessage="#{bundle.EditDtSondeRequiredMessage_idTypesonde}">
+                            <f:selectItems value="#{dtTypesondeController.itemsAvailableSelectOne}"
+                                           var="idTypesondeItem"
+                                           itemValue="#{idTypesondeItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{dtSondeController.create}" value="#{bundle.Save}" update="display,:DtSondeListForm:datalist,:growl" oncomplete="handleSubmit(args,'DtSondeCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="DtSondeCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

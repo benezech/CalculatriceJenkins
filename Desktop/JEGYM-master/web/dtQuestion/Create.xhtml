@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DtQuestionCreateDlg" widgetVar="DtQuestionCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateDtQuestionTitle}">
+            <h:form id="DtQuestionCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{dtQuestionController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateDtQuestionLabel_idQuestion}" for="idQuestion" />
+                        <p:inputText id="idQuestion" value="#{dtQuestionController.selected.idQuestion}" title="#{bundle.CreateDtQuestionTitle_idQuestion}" required="true" requiredMessage="#{bundle.CreateDtQuestionRequiredMessage_idQuestion}"/>
+                        <p:outputLabel value="#{bundle.CreateDtQuestionLabel_titreQuestion}" for="titreQuestion" />
+                        <p:inputText id="titreQuestion" value="#{dtQuestionController.selected.titreQuestion}" title="#{bundle.CreateDtQuestionTitle_titreQuestion}" />
+                        <p:outputLabel value="#{bundle.CreateDtQuestionLabel_descriptionQuestion}" for="descriptionQuestion" />
+                        <p:inputText id="descriptionQuestion" value="#{dtQuestionController.selected.descriptionQuestion}" title="#{bundle.CreateDtQuestionTitle_descriptionQuestion}" />
+                        <p:outputLabel value="#{bundle.CreateDtQuestionLabel_idTyperep}" for="idTyperep" />
+                        <p:inputText id="idTyperep" value="#{dtQuestionController.selected.idTyperep}" title="#{bundle.CreateDtQuestionTitle_idTyperep}" />
+                        <p:outputLabel value="#{bundle.CreateDtQuestionLabel_idFormulaire}" for="idFormulaire" />
+                        <p:selectOneMenu id="idFormulaire" value="#{dtQuestionController.selected.idFormulaire}" required="true" requiredMessage="#{bundle.EditDtQuestionRequiredMessage_idFormulaire}">
+                            <f:selectItems value="#{dtFormulaireController.itemsAvailableSelectOne}"
+                                           var="idFormulaireItem"
+                                           itemValue="#{idFormulaireItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{dtQuestionController.create}" value="#{bundle.Save}" update="display,:DtQuestionListForm:datalist,:growl" oncomplete="handleSubmit(args,'DtQuestionCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="DtQuestionCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

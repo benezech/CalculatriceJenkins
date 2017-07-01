@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DtEntrepriseEditDlg" widgetVar="DtEntrepriseEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditDtEntrepriseTitle}">
+            <h:form id="DtEntrepriseEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{dtEntrepriseController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditDtEntrepriseLabel_siretEntreprise}" for="siretEntreprise" />
+                        <p:inputText id="siretEntreprise" value="#{dtEntrepriseController.selected.siretEntreprise}" title="#{bundle.EditDtEntrepriseTitle_siretEntreprise}" required="true" requiredMessage="#{bundle.EditDtEntrepriseRequiredMessage_siretEntreprise}"/>
+                        <p:outputLabel value="#{bundle.EditDtEntrepriseLabel_raisonSocialEntreprise}" for="raisonSocialEntreprise" />
+                        <p:inputText id="raisonSocialEntreprise" value="#{dtEntrepriseController.selected.raisonSocialEntreprise}" title="#{bundle.EditDtEntrepriseTitle_raisonSocialEntreprise}" />
+                        <p:outputLabel value="#{bundle.EditDtEntrepriseLabel_adresseEntreprise}" for="adresseEntreprise" />
+                        <p:inputText id="adresseEntreprise" value="#{dtEntrepriseController.selected.adresseEntreprise}" title="#{bundle.EditDtEntrepriseTitle_adresseEntreprise}" />
+                        <p:outputLabel value="#{bundle.EditDtEntrepriseLabel_cpEntreprise}" for="cpEntreprise" />
+                        <p:inputText id="cpEntreprise" value="#{dtEntrepriseController.selected.cpEntreprise}" title="#{bundle.EditDtEntrepriseTitle_cpEntreprise}" />
+                        <p:outputLabel value="#{bundle.EditDtEntrepriseLabel_villeEntreprise}" for="villeEntreprise" />
+                        <p:inputText id="villeEntreprise" value="#{dtEntrepriseController.selected.villeEntreprise}" title="#{bundle.EditDtEntrepriseTitle_villeEntreprise}" />
+                        <p:outputLabel value="#{bundle.EditDtEntrepriseLabel_telEntreprise}" for="telEntreprise" />
+                        <p:inputText id="telEntreprise" value="#{dtEntrepriseController.selected.telEntreprise}" title="#{bundle.EditDtEntrepriseTitle_telEntreprise}" />
+                        <p:outputLabel value="#{bundle.EditDtEntrepriseLabel_emailEntreprise}" for="emailEntreprise" />
+                        <p:inputText id="emailEntreprise" value="#{dtEntrepriseController.selected.emailEntreprise}" title="#{bundle.EditDtEntrepriseTitle_emailEntreprise}" />
+                        <p:outputLabel value="#{bundle.EditDtEntrepriseLabel_pwdEntreprise}" for="pwdEntreprise" />
+                        <p:inputText id="pwdEntreprise" value="#{dtEntrepriseController.selected.pwdEntreprise}" title="#{bundle.EditDtEntrepriseTitle_pwdEntreprise}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{dtEntrepriseController.update}" value="#{bundle.Save}" update="display,:DtEntrepriseListForm:datalist,:growl" oncomplete="handleSubmit(args, 'DtEntrepriseEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="DtEntrepriseEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

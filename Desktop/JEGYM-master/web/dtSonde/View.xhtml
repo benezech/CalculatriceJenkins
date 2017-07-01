@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DtSondeViewDlg" widgetVar="DtSondeViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewDtSondeTitle}">
+            <h:form id="DtSondeViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{dtSondeController.selected != null}">
+                        <h:outputText value="#{bundle.ViewDtSondeLabel_idSonde}"/>
+                        <h:outputText value="#{dtSondeController.selected.idSonde}" title="#{bundle.ViewDtSondeTitle_idSonde}"/>
+                        <h:outputText value="#{bundle.ViewDtSondeLabel_nomSonde}"/>
+                        <h:outputText value="#{dtSondeController.selected.nomSonde}" title="#{bundle.ViewDtSondeTitle_nomSonde}"/>
+                        <h:outputText value="#{bundle.ViewDtSondeLabel_prenomSonde}"/>
+                        <h:outputText value="#{dtSondeController.selected.prenomSonde}" title="#{bundle.ViewDtSondeTitle_prenomSonde}"/>
+                        <h:outputText value="#{bundle.ViewDtSondeLabel_typeSonde}"/>
+                        <h:outputText value="#{dtSondeController.selected.typeSonde}" title="#{bundle.ViewDtSondeTitle_typeSonde}"/>
+                        <h:outputText value="#{bundle.ViewDtSondeLabel_mailSonde}"/>
+                        <h:outputText value="#{dtSondeController.selected.mailSonde}" title="#{bundle.ViewDtSondeTitle_mailSonde}"/>
+                        <h:outputText value="#{bundle.ViewDtSondeLabel_telSonde}"/>
+                        <h:outputText value="#{dtSondeController.selected.telSonde}" title="#{bundle.ViewDtSondeTitle_telSonde}"/>
+                        <h:outputText value="#{bundle.ViewDtSondeLabel_idTypesonde}"/>
+                        <h:outputText value="#{dtSondeController.selected.idTypesonde}" title="#{bundle.ViewDtSondeTitle_idTypesonde}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="DtSondeViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
