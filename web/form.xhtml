@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Création Formulaire dynamique
+
+        <p id="text">
+            <h:outputText value="Question Nr #{form.etape}" escape="false" />
+            <h:outputText value="Question Nr #{form.nbQuestion}" escape="false" />
+        </p>
+        <br />
+
+        <br/>
+
+
+        <h:form>
+
+            <p:inplace id="basic">
+                <p:inputText value="#{form.question}" />
+            </p:inplace><br/>
+
+            <p:messages autoUpdate="true" />
+            <p:outputLabel for="rep" value="Ajouter une réponse: " />
+            <p:selectOneMenu id="rep" value="#{selectOneMenuView.rep}">
+                <!--<f:selectItem itemLabel="Select One" itemValue="" />-->
+                <f:selectItems value="#{selectOneMenuView.questions}" />
+            </p:selectOneMenu>
+            <h:commandButton value="Ajouter réponse" action="#{form.ajouterReponse(selectOneMenuView.rep)}" />    
+            <br/>
+            <ui:repeat value="#{form.listReponseEtape}" var="value">
+                        <!--<textarea id="default" >#{value}</textarea>-->
+                
+                <br/>            
+   
+                <ui:fragment rendered="#{value eq '1'}">
+                    Texte : <p:inputText value="#{value}" />
+               </ui:fragment>
+                <ui:fragment rendered="#{value eq '2'}">
+                    Réponse ouverte
+               </ui:fragment>
+                <ui:fragment rendered="#{value eq '10'}">
+                    Entier : <p:inputText value="#{value}" />
+               </ui:fragment>
+                <ui:fragment rendered="#{value eq '11'}">
+                    Décimal : <p:inputText value="#{value}" />
+               </ui:fragment>
+                <ui:fragment rendered="#{value eq '20'}">
+                    <p:outputLabel for="inline" value="Inline:" />
+                    <p:calendar id="inline" value="#{calendarView.date1}" mode="inline" />
+               </ui:fragment>
+                <h:commandButton value="Supprimer la question" action="#{form.supprimerReponse()}" />
+            </ui:repeat>
+
+            <br/> <br/> 
+            <!-- ajouter bool choix multiple -->    
+            <h:commandButton value="Prochaine Question" action="#{form.ajouterQuestion()}" />
+            <h:commandButton value="Étape Suivante" action="#{form.etapeSuivante()}" />
+
+
+        </h:form>
+
+
+
+    </h:body>
+</html>
+
